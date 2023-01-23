@@ -1,0 +1,116 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Gerenciamento Biblioteca'
+  ClientHeight = 614
+  ClientWidth = 689
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object PageControl1: TPageControl
+    Left = 0
+    Top = 0
+    Width = 689
+    Height = 617
+    ActivePage = TabSheet1
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'Listar'
+      object DBGrid1: TDBGrid
+        Left = 3
+        Top = 120
+        Width = 675
+        Height = 464
+        DataSource = DataSource1
+        TabOrder = 0
+        TitleFont.Charset = DEFAULT_CHARSET
+        TitleFont.Color = clWindowText
+        TitleFont.Height = -12
+        TitleFont.Name = 'Segoe UI'
+        TitleFont.Style = []
+      end
+      object DBNavigator1: TDBNavigator
+        Left = 0
+        Top = 0
+        Width = 681
+        Height = 25
+        DataSource = DataSource1
+        Align = alTop
+        TabOrder = 1
+        ExplicitLeft = 168
+        ExplicitTop = 32
+        ExplicitWidth = 240
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'Cadastrar'
+      ImageIndex = 1
+      object Label1: TLabel
+        Left = 48
+        Top = 32
+        Width = 33
+        Height = 15
+        Caption = 'Nome'
+      end
+      object Button1: TButton
+        Left = 344
+        Top = 168
+        Width = 105
+        Height = 41
+        Caption = 'Cadastrar'
+        TabOrder = 0
+      end
+      object Edit1: TEdit
+        Left = 48
+        Top = 53
+        Width = 121
+        Height = 23
+        TabOrder = 1
+      end
+    end
+    object TabSheet3: TTabSheet
+      Caption = 'Editar'
+      ImageIndex = 2
+    end
+    object TabSheet4: TTabSheet
+      Caption = 'Excluir'
+      ImageIndex = 3
+    end
+  end
+  object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
+    VendorLib = 'C:\Users\20211148060004\Downloads\libmysql\libmysql.dll'
+    Left = 648
+    Top = 56
+  end
+  object DblivrariaConnection: TFDConnection
+    Params.Strings = (
+      'ConnectionDef=DbLivraria')
+    Connected = True
+    LoginPrompt = False
+    Left = 649
+    Top = 103
+  end
+  object DataSource1: TDataSource
+    DataSet = TbalunoTable
+    Left = 648
+    Top = 200
+  end
+  object TbalunoTable: TFDQuery
+    Active = True
+    Connection = DblivrariaConnection
+    SQL.Strings = (
+      'SELECT * from dblivraria.vwalunos')
+    Left = 647
+    Top = 151
+  end
+  object BindingsList1: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 652
+    Top = 5
+  end
+end
